@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1034434946486",
+    "project_id": "goodcollect-c7068",
+    "storage_bucket": "goodcollect-c7068.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034434946486:android:8f88887a89bda1aa968d17",
+        "android_client_info": {
+          "package_name": "com.example.goodcollect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHs3NyR6exQGn9xw9scw0fRZnCbKAPCB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
