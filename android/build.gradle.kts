@@ -1,9 +1,8 @@
 plugins {
     id("com.android.application") version "8.11.1" apply false
-    id("org.jetbrains.kotlin.android") version "2.2.20" apply false // ✅ Utiliser la version 2.2.20
+    id("org.jetbrains.kotlin.android") version "2.2.20" apply false
 
-    // Pour Firebase :
-    id("com.google.gms.google-services") version "4.3.15" apply false // Assurez-vous que cette ligne est correcte également
+    id("com.google.gms.google-services") version "4.3.15" apply false
 }
 allprojects {
     repositories {

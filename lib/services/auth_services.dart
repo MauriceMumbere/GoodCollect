@@ -1,4 +1,3 @@
-// lib/services/auth_service.dart
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
@@ -12,11 +11,8 @@ class AuthService {
         email: email,
         password: password,
       );
-      // Optionnel : Ajouter le nom d'affichage après l'inscription
-      // await result.user?.updateDisplayName(name);
       return result.user;
     } on FirebaseAuthException catch (e) {
-      // Propagation de l'erreur pour la gestion dans l'UI
       throw e;
     } catch (e) {
       print(e);
@@ -24,7 +20,7 @@ class AuthService {
     }
   }
 
-// --- Connexion ---
+  // --- Connexion ---
   Future<User?> signInWithEmailAndPassword(
       String email, String password) async {
     try {
@@ -34,11 +30,20 @@ class AuthService {
       );
       return result.user;
     } on FirebaseAuthException {
-      // Propagation de l'erreur pour la gestion dans l'UI
       rethrow;
     } catch (e) {
       print("Erreur inattendue de connexion: $e");
       return null;
+    }
+  }
+
+  // --- Deconnexion ---
+  Future<void> signOut() async {
+    try {
+      await _auth.signOut();
+    } catch (e) {
+      print("Erreur lors de la déconnexion: $e");
+      throw e;
     }
   }
 }
