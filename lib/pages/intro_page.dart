@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:goodcollect/pages/auth/register_page.dart';
+import 'package:go_router/go_router.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -18,10 +18,7 @@ class _IntroPageState extends State<IntroPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Future.delayed(const Duration(seconds: 2), () {
         if (mounted) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => const RegisterPage()),
-          );
+          context.go("/register");
         }
       });
     });

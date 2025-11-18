@@ -6,16 +6,18 @@ class HomePage extends StatelessWidget {
   const HomePage({required this.child, super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { // ici build souligne en rouge
 
-    final String location = GoRouterState.of(context).uri.toString();
+    final String fullPath = GoRouterState.of(context).uri.path;
 
     int selectedIndex = 0;
 
-    if (location.startsWith('/report')) {
-      selectedIndex = 1;
-    } else if (location.startsWith('/profile')) {
+    if (fullPath.startsWith('/profile')) {
       selectedIndex = 2;
+    } else if (fullPath.startsWith('/report')) {
+      selectedIndex = 1;
+    } else {
+      selectedIndex = 0;
     }
     return Scaffold(
       body: child,

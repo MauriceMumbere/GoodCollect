@@ -26,6 +26,18 @@ class _RegisterPageState extends State<RegisterPage> {
   bool _isLoading = false;
   String? _errorMessage;
 
+  // Nouvelle méthode pour afficher un SnackBar
+  void _showSnackBar(String message, Color color) {
+    if (!mounted) return; // Assurez-vous que le widget est monté
+
+    final snackBar = SnackBar(
+      content: Text(message),
+      backgroundColor: color,
+      duration: const Duration(seconds: 3),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   void _registerUser() async {
     if (!_formKey.currentState!.validate()) {
       return;
@@ -47,6 +59,10 @@ class _RegisterPageState extends State<RegisterPage> {
         await user.updateDisplayName(name);
 
         if (mounted) {
+          _showSnackBar(
+              "Inscription réussie ! Vous pouvez maintenant vous connecter.",
+              Colors.green
+          );
           context.go("/login");
         }
       }

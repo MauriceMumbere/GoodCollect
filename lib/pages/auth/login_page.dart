@@ -22,6 +22,17 @@ class _LoginPageState extends State<LoginPage> {
   bool _isLoading = false;
   String? _errorMessage;
 
+  void _showSnackBar(String message, Color color) {
+    if (!mounted) return;
+
+    final snackBar = SnackBar(
+      content: Text(message),
+      backgroundColor: color,
+      duration: const Duration(seconds: 3),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   void _loginUser() async {
     if (!_formKey.currentState!.validate()) {
       return;
@@ -40,6 +51,7 @@ class _LoginPageState extends State<LoginPage> {
 
       if (user != null) {
         if (mounted) {
+          _showSnackBar("Connexion réussie ! Bienvenue.", Colors.green);
           context.go("/home");
         }
       }
